@@ -21,11 +21,20 @@ spec:
         - containerPort: 5433
         env:
         - name: POSTGRES_DB
-          value: appdb
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secrets
+              key: POSTGRES_DB
         - name: POSTGRES_USER
-          value: akash
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secrets
+              key: POSTGRES_USER
         - name: POSTGRES_PASSWORD
-          value: A2003189
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secrets
+              key: POSTGRES_PASSWORD
 ---
 apiVersion: v1
 kind: Service

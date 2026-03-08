@@ -23,9 +23,15 @@ spec:
         - name: SPRING_DATASOURCE_URL
           value: jdbc:postgresql://postgres:5432/appdb
         - name: SPRING_DATASOURCE_USERNAME
-          value: akash
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secrets
+              key: POSTGRES_USER
         - name: SPRING_DATASOURCE_PASSWORD
-          value: A2003189
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secrets
+              key: POSTGRES_PASSWORD
         - name: SPRING_DATA_REDIS_HOST
           value: redis
         - name: SPRING_DATA_REDIS_PORT
