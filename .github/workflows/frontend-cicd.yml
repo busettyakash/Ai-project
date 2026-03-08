@@ -23,6 +23,8 @@ jobs:
         
       - name: Build Project
         run: npm run build
+        env:
+          VITE_API_URL: https://paola-isotypic-nonaxiomatically.ngrok-free.dev/api
         
       - name: Deploy to GitHub Pages
         if: github.ref == 'refs/heads/main'
