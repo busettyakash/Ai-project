@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: busettyakash/salesshop-frontend:latest
+        image: akash126/salesshop-frontend:latest
         ports:
         - containerPort: 80
 ---

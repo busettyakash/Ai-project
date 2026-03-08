@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: busettyakash/salesshop-backend:latest
+        image: akash126/salesshop-backend:latest
         ports:
         - containerPort: 8080
         env:
