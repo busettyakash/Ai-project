@@ -11,7 +11,7 @@ import Documents from './pages/Documents'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Ai-project">
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
