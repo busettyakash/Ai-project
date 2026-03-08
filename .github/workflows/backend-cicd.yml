@@ -41,6 +41,4 @@ jobs:
         uses: clowdhaus/argo-cd-action/@main
         with:
           command: app sync salesshop-backend
-          address: ${{ secrets.ARGOCD_SERVER }}
-          username: ${{ secrets.ARGOCD_USERNAME }}
-          password: ${{ secrets.ARGOCD_PASSWORD }}
+          options: --server ${{ secrets.ARGOCD_SERVER }} --username ${{ secrets.ARGOCD_USERNAME }} --password ${{ secrets.ARGOCD_PASSWORD }} --insecure
