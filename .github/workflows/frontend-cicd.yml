@@ -1,26 +1,7 @@
 name: Frontend CI/CD
 
 on:
-  push:
-    branches: [ main ]
-    paths:
-      - 'src/**'
-      - 'public/**'
-      - 'package*.json'
-      - 'index.html'
-      - 'vite.config.js'
-      - 'Dockerfile'
-      - 'nginx.conf'
-  pull_request:
-    branches: [ main ]
-    paths:
-      - 'src/**'
-      - 'public/**'
-      - 'package*.json'
-      - 'index.html'
-      - 'vite.config.js'
-      - 'Dockerfile'
-      - 'nginx.conf'
+  workflow_dispatch:
 
 permissions:
   contents: write

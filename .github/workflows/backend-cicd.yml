@@ -1,14 +1,7 @@
 name: Backend CI/CD
 
 on:
-  push:
-    branches: [ main ]
-    paths:
-      - 'backend/**'
-  pull_request:
-    branches: [ main ]
-    paths:
-      - 'backend/**'
+  workflow_dispatch:
 
 jobs:
   build-and-push:
