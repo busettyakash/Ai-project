@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Landing from './pages/Landing'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
@@ -11,7 +11,7 @@ import Documents from './pages/Documents'
 
 function App() {
   return (
-    <BrowserRouter basename="/Ai-project">
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
@@ -23,7 +23,7 @@ function App() {
         <Route path="/analytics" element={<AnalyticsPage />} />
         <Route path="/documents" element={<Documents />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
