@@ -36,6 +36,12 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/salesshop-backend:latest
 
+      - name: Diagnostic - Check ArgoCD Connectivity
+        run: |
+          echo "Checking connection to ${{ secrets.ARGOCD_SERVER }}..."
+          curl -v -k "http://${{ secrets.ARGOCD_SERVER }}/" || echo "HTTP Check failed"
+          curl -v -k "https://${{ secrets.ARGOCD_SERVER }}/" || echo "HTTPS Check failed"
+
       - name: Sync ArgoCD Application
         if: github.event_name != 'pull_request'
         uses: clowdhaus/argo-cd-action/@main
