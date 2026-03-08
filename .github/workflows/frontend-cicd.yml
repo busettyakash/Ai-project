@@ -46,13 +46,4 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/salesshop-frontend:latest
 
-      - name: Sync ArgoCD Application
-        if: github.event_name != 'pull_request'
-        uses: clowdhaus/argo-cd-action/@main
-        env:
-          ARGOCD_SERVER: ${{ secrets.ARGOCD_SERVER }}
-          ARGOCD_USERNAME: ${{ secrets.ARGOCD_USERNAME }}
-          ARGOCD_PASSWORD: ${{ secrets.ARGOCD_PASSWORD }}
-          ARGOCD_OPTS: --insecure
-        with:
-          command: app sync salesshop-frontend
+
