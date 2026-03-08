@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: ${DOCKERHUB_USERNAME}/salesshop-frontend:latest
+        image: busettyakash/salesshop-frontend:latest
         ports:
         - containerPort: 80
 ---

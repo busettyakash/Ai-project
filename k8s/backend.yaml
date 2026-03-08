@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: ${DOCKERHUB_USERNAME}/salesshop-backend:latest
+        image: busettyakash/salesshop-backend:latest
         ports:
         - containerPort: 8080
         env:
