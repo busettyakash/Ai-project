@@ -1,0 +1,64 @@
+databaseChangeLog:
+  - changeSet:
+      id: 007-create-activities-table
+      author: salesshop
+      changes:
+        - createTable:
+            tableName: activities
+            columns:
+              - column:
+                  name: id
+                  type: BIGSERIAL
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: type
+                  type: VARCHAR(30)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: TEXT
+              - column:
+                  name: customer_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_activities_customer
+                    references: customers(id)
+              - column:
+                  name: deal_id
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: fk_activities_deal
+                    references: deals(id)
+              - column:
+                  name: user_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_activities_user
+                    references: users(id)
+              - column:
+                  name: activity_date
+                  type: TIMESTAMP
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+        - createIndex:
+            indexName: idx_activities_customer_id
+            tableName: activities
+            columns:
+              - column:
+                  name: customer_id
+        - createIndex:
+            indexName: idx_activities_user_id
+            tableName: activities
+            columns:
+              - column:
+                  name: user_id

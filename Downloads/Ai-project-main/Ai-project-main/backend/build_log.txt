@@ -1,0 +1,53 @@
+﻿.\gradlew.bat : 
+At line:1 char:1
++ .\gradlew.bat 
+compileJava 2>&1 | 
+Out-File -FilePath 
+.\build_log.txt - ...
++ ~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~
+    + CategoryInfo    
+          : NotSpeci  
+  fied: (:String) [   
+ ], RemoteExceptio    
+n
+    + FullyQualifiedE 
+   rrorId : NativeCo  
+  mmandError
+ 
+FAILURE: Build failed 
+with an exception.
+
+* What went wrong:
+Could not open 
+settings generic 
+class cache for 
+settings file 'C:\User
+s\91630\Downloads\Ai-p
+roject-main\Ai-project
+-main\backend\settings
+.gradle' (C:\Users\916
+30\.gradle\caches\8.5\
+scripts\3jz3infs9bdfon
+mtp0xtjd5tz).
+> BUG! exception in 
+phase 'semantic 
+analysis' in source 
+unit '_BuildScript_' 
+Unsupported class 
+file major version 67
+
+* Try:
+> Run with 
+--stacktrace option 
+to get the stack 
+trace.
+> Run with --info or 
+--debug option to get 
+more log output.
+> Run with --scan to 
+get full insights.
+> Get more help at htt
+ps://help.gradle.org.
+
+BUILD FAILED in 1s

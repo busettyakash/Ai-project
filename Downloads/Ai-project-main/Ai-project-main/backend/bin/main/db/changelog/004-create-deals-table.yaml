@@ -1,0 +1,61 @@
+databaseChangeLog:
+  - changeSet:
+      id: 004-create-deals-table
+      author: salesshop
+      changes:
+        - createTable:
+            tableName: deals
+            columns:
+              - column:
+                  name: id
+                  type: BIGSERIAL
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: value
+                  type: DECIMAL(14,2)
+              - column:
+                  name: stage
+                  type: VARCHAR(50)
+                  defaultValue: PROSPECT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: customer_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_deals_customer
+                    references: customers(id)
+              - column:
+                  name: user_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_deals_user
+                    references: users(id)
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+        - createIndex:
+            indexName: idx_deals_customer_id
+            tableName: deals
+            columns:
+              - column:
+                  name: customer_id
+        - createIndex:
+            indexName: idx_deals_user_id
+            tableName: deals
+            columns:
+              - column:
+                  name: user_id
