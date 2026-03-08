@@ -35,3 +35,12 @@ jobs:
           context: ./backend
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/salesshop-backend:latest
+
+      - name: Sync ArgoCD Application
+        if: github.event_name != 'pull_request'
+        uses: clowdhaus/argo-cd-action/@main
+        with:
+          command: app sync salesshop-backend
+          address: ${{ secrets.ARGOCD_SERVER }}
+          username: ${{ secrets.ARGOCD_USERNAME }}
+          password: ${{ secrets.ARGOCD_PASSWORD }}
