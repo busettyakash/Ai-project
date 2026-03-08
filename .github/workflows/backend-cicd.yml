@@ -39,6 +39,10 @@ jobs:
       - name: Sync ArgoCD Application
         if: github.event_name != 'pull_request'
         uses: clowdhaus/argo-cd-action/@main
+        env:
+          ARGOCD_SERVER: ${{ secrets.ARGOCD_SERVER }}
+          ARGOCD_USERNAME: ${{ secrets.ARGOCD_USERNAME }}
+          ARGOCD_PASSWORD: ${{ secrets.ARGOCD_PASSWORD }}
+          ARGOCD_OPTS: --insecure
         with:
           command: app sync salesshop-backend
-          options: --server ${{ secrets.ARGOCD_SERVER }} --username ${{ secrets.ARGOCD_USERNAME }} --password ${{ secrets.ARGOCD_PASSWORD }} --insecure
