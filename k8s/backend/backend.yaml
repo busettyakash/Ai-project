@@ -21,11 +21,15 @@ spec:
         - containerPort: 8080
         env:
         - name: SPRING_DATASOURCE_URL
-          value: jdbc:postgresql://postgres:5432/salesshop
+          value: jdbc:postgresql://postgres:5432/appdb
         - name: SPRING_DATASOURCE_USERNAME
-          value: postgres
+          value: akash
         - name: SPRING_DATASOURCE_PASSWORD
-          value: password
+          value: A2003189
+        - name: SPRING_DATA_REDIS_HOST
+          value: redis
+        - name: SPRING_DATA_REDIS_PORT
+          value: "6379"
         - name: APP_JWT_SECRET
           value: salesshop_jwt_secret_key_2026_spring_boot
 ---
