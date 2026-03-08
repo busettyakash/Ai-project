@@ -1,0 +1,48 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002-create-customers-table
+      author: salesshop
+      changes:
+        - createTable:
+            tableName: customers
+            columns:
+              - column:
+                  name: id
+                  type: BIGSERIAL
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: email
+                  type: VARCHAR(255)
+              - column:
+                  name: phone
+                  type: VARCHAR(20)
+              - column:
+                  name: company
+                  type: VARCHAR(255)
+              - column:
+                  name: user_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_customers_user
+                    references: users(id)
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+        - createIndex:
+            indexName: idx_customers_user_id
+            tableName: customers
+            columns:
+              - column:
+                  name: user_id
