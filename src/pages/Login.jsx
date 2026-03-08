@@ -11,6 +11,8 @@ const quotes = [
     { text: 'Our team saves 10+ hours per week with the workflow automation. Absolute game changer.', name: 'Emily Torres', role: 'Sales Manager, Nextera', initials: 'ET' },
 ]
 
+const API = import.meta.env.VITE_API_URL || 'http://localhost:8080/api'
+
 export default function Login() {
     const navigate = useNavigate()
     const [email, setEmail] = useState('')
@@ -55,7 +57,7 @@ export default function Login() {
 
         setLoading(true)
         try {
-            const res = await fetch('http://localhost:8080/api/login', {
+            const res = await fetch(`${API}/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password }),

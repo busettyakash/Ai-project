@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import DashboardLayout from '../components/DashboardLayout'
 import './Dashboard.css'
 
-const API = 'http://localhost:8080/api'
+const API = import.meta.env.VITE_API_URL || 'http://localhost:8080/api'
 
 export default function Dashboard() {
     const navigate = useNavigate()
