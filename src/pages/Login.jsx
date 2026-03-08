@@ -11,7 +11,7 @@ const quotes = [
     { text: 'Our team saves 10+ hours per week with the workflow automation. Absolute game changer.', name: 'Emily Torres', role: 'Sales Manager, Nextera', initials: 'ET' },
 ]
 
-const API = import.meta.env.VITE_API_URL || 'http://localhost:8080/api'
+const API = process.env.VITE_API_URL || 'http://localhost:8080/api'
 
 export default function Login() {
     const navigate = useNavigate()

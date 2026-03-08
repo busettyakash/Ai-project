@@ -11,6 +11,8 @@ const quotes = [
     { text: 'Our team saves 10+ hours per week with workflow automation. Absolute game changer.', name: 'Emily Torres', role: 'Sales Manager, Nextera', initials: 'ET' },
 ]
 
+const API = process.env.VITE_API_URL || 'http://localhost:8080/api'
+
 export default function Signup() {
     const navigate = useNavigate()
     const [form, setForm] = useState({ name: '', email: '', shopName: '', gstNumber: '', password: '', confirm: '' })
@@ -81,7 +83,7 @@ export default function Signup() {
 
         setLoading(true)
         try {
-            const res = await fetch('http://localhost:8080/api/signup', {
+            const res = await fetch(`${API}/signup`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
