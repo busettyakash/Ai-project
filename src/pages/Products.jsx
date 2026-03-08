@@ -72,7 +72,7 @@ export default function Products() {
 
     useEffect(() => { if (!token) { navigate('/login'); return } fetchProducts() }, [])
 
-    const headers = { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' }
+    const headers = { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', 'ngrok-skip-browser-warning': 'true' }
 
     const fetchProducts = () => {
         fetch(`${API}/products`, { headers }).then(r => r.json()).then(setProducts).catch(() => { })

@@ -19,7 +19,7 @@ export default function Customers() {
         fetchCustomers()
     }, [])
 
-    const headers = { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' }
+    const headers = { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', 'ngrok-skip-browser-warning': 'true' }
 
     const fetchCustomers = () => {
         fetch(`${API}/customers`, { headers }).then(r => r.json()).then(setCustomers).catch(() => { })

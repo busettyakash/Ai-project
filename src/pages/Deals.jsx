@@ -26,10 +26,10 @@ export default function Deals() {
     useEffect(() => {
         if (!token) { navigate('/login'); return }
         fetchDeals()
-        fetch(`${API}/customers`, { headers: { Authorization: `Bearer ${token}` } }).then(r => r.json()).then(setCustomers).catch(() => { })
+        fetch(`${API}/customers`, { headers: { Authorization: `Bearer ${token}`, 'ngrok-skip-browser-warning': 'true' } }).then(r => r.json()).then(setCustomers).catch(() => { })
     }, [])
 
-    const headers = { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' }
+    const headers = { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', 'ngrok-skip-browser-warning': 'true' }
 
     const fetchDeals = () => {
         fetch(`${API}/deals`, { headers }).then(r => r.json()).then(setDeals).catch(() => { })

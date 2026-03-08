@@ -13,7 +13,7 @@ export default function AnalyticsPage() {
 
     useEffect(() => {
         if (!token) { navigate('/login'); return }
-        fetch(`${API}/dashboard/stats`, { headers: { Authorization: `Bearer ${token}` } })
+        fetch(`${API}/dashboard/stats`, { headers: { Authorization: `Bearer ${token}`, 'ngrok-skip-browser-warning': 'true' } })
             .then(r => r.json()).then(setStats).catch(() => { })
     }, [])
 

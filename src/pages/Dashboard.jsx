@@ -17,7 +17,7 @@ export default function Dashboard() {
 
     useEffect(() => {
         if (!token) { navigate('/login'); return }
-        const h = { Authorization: `Bearer ${token}` }
+        const h = { Authorization: `Bearer ${token}`, 'ngrok-skip-browser-warning': 'true' }
         Promise.all([
             fetch(`${API}/dashboard/stats`, { headers: h }).then(r => r.ok ? r.json() : null),
             fetch(`${API}/dashboard/recent-activity`, { headers: h }).then(r => r.ok ? r.json() : null),
